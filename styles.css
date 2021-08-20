@@ -8,11 +8,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 50%;
 }
 .button {
   width: 100px;
   height: 100px;
-
-  border: 1px solid green;
+  color: mediumspringgreen;
+  border: 2px solid green;
   cursor: grab;
 }
