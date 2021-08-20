@@ -9,29 +9,29 @@ const colors = [
 let id = null;
 
 const randomIntegerFromInterval = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+    return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 const refs = {
-  start: document.querySelector('[data-action="start"]'),
-  stop: document.querySelector('[data-action="stop"]'),
-  body: document.querySelector('body')
-}
+    startButton: document.querySelector('[data-action="start"]'),
+    stopButton: document.querySelector('[data-action="stop"]'),
+    allScreen: document.querySelector('body')
+};
 
-refs.start.addEventListener('click', onStartBtn);
-refs.stop.addEventListener('click', onStopBtn);
+refs.startButton.addEventListener('click', onStart);
+refs.stopButton.addEventListener('click', onStop);
 
-function onStartBtn() {
-  id = setInterval(colorBodyBkg, 1000);
-  refs.start.disabled = true;
-}
+function onStart() {
+    timerId = setInterval(paintHandler, 1000);
+    refs.startButton.removeEventListener('click', onStart);
+};
 
-function onStopBtn() {
-  clearInterval(id);
-  refs.start.disabled = false;
-}
+function onStop() {
+    clearInterval(timerId);
+    refs.startButton.addEventListener('click', onStart);
+};
 
-function colorBodyBkg() {
-  const color = colors[randomIntegerFromInterval(0, colors.length - 1)];
-  refs.body.style.backgroundColor = color;
+function paintHandler() {
+    const color = colors[randomIntegerFromInterval(0, colors.length - 1)];
+    refs.allScreen.style.backgroundColor = color;
 }
