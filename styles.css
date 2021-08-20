@@ -13,6 +13,8 @@
 .button {
   width: 100px;
   height: 100px;
+  margin-right: 30px;
+  font-size: medium;
   color: mediumspringgreen;
   border: 2px solid green;
   cursor: grab;
