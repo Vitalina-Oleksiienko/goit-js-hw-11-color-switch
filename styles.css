@@ -6,11 +6,12 @@
 
 .block {
   display: block;
+  position: relative;
+  margin: 0 auto;
 }
 .button {
   height: 50px;
   display: block;
-  position: relative;
+
   border: 1px solid white;
-  margin: 0 auto;
 }
